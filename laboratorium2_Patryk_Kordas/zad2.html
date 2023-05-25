@@ -189,24 +189,34 @@
            this.arc(x,y,radius,0,2*Math.PI,false);
            this.stroke();
         }
-        graphics.fillPoly = function() { 
+        graphics.fillPoly = function(x, y) { 
+            var radius = 40;
+            var sides = 14;
+            var angle = (2 * Math.PI) / sides;
             if (arguments.length < 6)
                return;
             this.beginPath();
-            this.moveTo(arguments[0],arguments[1]);
-            for (var i = 2; i+1 < arguments.length; i = i + 2) { 
-               this.lineTo(arguments[i],arguments[i+1]);
+            this.moveTo(x + radius, y);
+            for (var i = 1; i<=sides; i++){
+                var nextX = x + radius * Math.cos(i * angle);
+                var NextY = y + radius * Math.sin(i * angle);
+                this.lineTo(nextX,NextY);
             }
             this.closePath();
             this.fill();
         }
-        graphics.strokePoly = function() { 
-            if (arguments.length < 4)
+        graphics.strokePoly = function(x, y) { 
+            var radius = 40;
+            var sides = 14;
+            var angle = (2 * Math.PI) / sides;
+            if (arguments.length < 6)
                return;
             this.beginPath();
-            this.moveTo(arguments[0],arguments[1]);
-            for (var i = 2; i+1 < arguments.length; i = i + 2) { 
-               this.lineTo(arguments[i],arguments[i+1]);
+            this.moveTo(x + radius, y);
+            for (var i = 1; i<=sides; i++){
+                var nextX = x + radius * Math.cos(i * angle);
+                var NextY = y + radius * Math.sin(i * angle);
+                this.lineTo(nextX,NextY);
             }
             this.closePath();
             this.stroke();
@@ -291,7 +301,7 @@
     <b>Tool</b>
     <select id="tools">
         <option value="0">kwadrat</option>
-        <option value="1">Mój Wariant (3)</option>
+        <option value="1">Mój Wariant (14)</option>
     </select>
 </p>
 
