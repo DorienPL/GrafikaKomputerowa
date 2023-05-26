@@ -37,12 +37,12 @@
         // rotatingRect = new TransformedObject(filledRect);   // (DELETE THIS EXAMPLE)
         // rotatingRect.setScale(2,2).setColor("red"); 
 
-        front_left_septagon = new TransformedObject(septagon);
-        front_left_septagon.setTranslation(-1.35, -0.35).setColor("pink").setScale(0.75,0.75);
-        world.add(front_left_septagon);
-		front_right_septagon = new TransformedObject(septagon);
-        front_right_septagon.setTranslation(1.35, -1.35).setColor("pink").setScale(0.75,0.75);
-        world.add(front_right_septagon);
+        front_left_shape = new TransformedObject(shape);
+        front_left_shape.setTranslation(-1.35, -0.35).setColor("pink").setScale(0.75,0.75);
+        world.add(front_left_shape);
+		front_right_shape = new TransformedObject(shape);
+        front_right_shape.setTranslation(1.35, -1.35).setColor("pink").setScale(0.75,0.75);
+        world.add(front_right_shape);
 		front_swing = new TransformedObject(filledRect);
         front_swing.setTranslation(0, -0.85).setColor("red").setScale(3,0.2).setRotation(-20);
         world.add(front_swing);
@@ -50,12 +50,12 @@
         front_base.setTranslation(0, -2.85).setColor("blue").setScale(0.5,2.0);
         world.add(front_base);
 
-        second_left_septagon = new TransformedObject(septagon);
-        second_left_septagon.setTranslation(-3.3, 2).setColor("pink").setScale(0.6,0.6);
-        world.add(second_left_septagon);
-		second_right_septagon = new TransformedObject(septagon);
-        second_right_septagon.setTranslation(-1.15, 1.2).setColor("pink").setScale(0.6,0.6);
-        world.add(second_right_septagon);
+        second_left_shape = new TransformedObject(shape);
+        second_left_shape.setTranslation(-3.3, 2).setColor("pink").setScale(0.6,0.6);
+        world.add(second_left_shape);
+		second_right_shape = new TransformedObject(shape);
+        second_right_shape.setTranslation(-1.15, 1.2).setColor("pink").setScale(0.6,0.6);
+        world.add(second_right_shape);
 		second_swing = new TransformedObject(filledRect);
         second_swing.setTranslation(-2.25, 1.6).setColor("red").setScale(2.4,0.15).setRotation(-20);
         world.add(second_swing);
@@ -63,12 +63,12 @@
         second_base.setTranslation(-2.25, 0).setColor("purple").setScale(0.4,1.6);
         world.add(second_base);
 		
-		third_left_septagon = new TransformedObject(septagon);
-        third_left_septagon.setTranslation(1.3, 2.25).setColor("pink").setScale(0.4,0.4);
-        world.add(third_left_septagon);
-		third_right_septagon = new TransformedObject(septagon);
-        third_right_septagon.setTranslation(2.7, 1.75).setColor("pink").setScale(0.4,0.4);
-        world.add(third_right_septagon);
+		third_left_shape = new TransformedObject(shape);
+        third_left_shape.setTranslation(1.3, 2.25).setColor("pink").setScale(0.4,0.4);
+        world.add(third_left_shape);
+		third_right_shape = new TransformedObject(shape);
+        third_right_shape.setTranslation(2.7, 1.75).setColor("pink").setScale(0.4,0.4);
+        world.add(third_right_shape);
 		third_swing = new TransformedObject(filledRect);
         third_swing.setTranslation(2, 2).setColor("red").setScale(1.5,0.1).setRotation(-20);
         world.add(third_swing);
@@ -86,12 +86,12 @@
         frameNumber++;
 
         // TODO: Update state in preparation for drawing the next frame.
-        front_left_septagon.setRotation(frameNumber*0.75);
-        front_right_septagon.setRotation(frameNumber*0.75); 
-        second_left_septagon.setRotation(frameNumber*0.75);
-        second_right_septagon.setRotation(frameNumber*0.75); 
-        third_left_septagon.setRotation(frameNumber*0.75); 
-        third_right_septagon.setRotation(frameNumber*0.75);
+        front_left_shape.setRotation(frameNumber*0.75);
+        front_right_shape.setRotation(frameNumber*0.75); 
+        second_left_shape.setRotation(frameNumber*0.75);
+        second_right_shape.setRotation(frameNumber*0.75); 
+        third_left_shape.setRotation(frameNumber*0.75); 
+        third_right_shape.setRotation(frameNumber*0.75);
         
     }
  
@@ -218,7 +218,7 @@
         g.restore();
     }
     
-    // Create some basic septagons as custom SceneGraphNode objects.
+    // Create some basic shapes as custom SceneGraphNode objects.
            
     var line = new SceneGraphNode();  // Line from (-0.5,0) to (0.5,0)
     line.doDraw = function(g) {
@@ -263,8 +263,8 @@
     }   
     
 
-    var septagon = new SceneGraphNode();
-    septagon.doDraw = function(g){
+    var shape = new SceneGraphNode();
+    shape.doDraw = function(g){
         g.fillColor = this.fillColor;
         g.beginPath();
         g.moveTo(0, 0);
